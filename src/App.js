@@ -1,15 +1,14 @@
 import React,{useState} from 'react';
+
 import Pizza from './component/Pizza';
-import { Provider } from 'react-redux'
-import store from './store/store';
+import Icecream from './component/Icecream';
+
 export default function App(){
   return(
-  <Provider store={store}>  
-  <div>
-    <h1>My Pizza Store</h1>
+  <div>  
     <Pizza/>
+    <Icecream/>
   </div>
-  </Provider>
   )
 }
 

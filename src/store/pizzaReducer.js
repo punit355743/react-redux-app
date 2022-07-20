@@ -6,16 +6,18 @@ const initialState = {
 
  const pizzaReducer = (state = initialState,action)=>{
 
-    console.log(action)
+   
     switch(action.type){
         case BUY_A_PIZZA: {
              return{
-                 ...state,numberOfPizza:state.numberOfPizza -1
+                 ...state,
+                 numberOfPizza:state.numberOfPizza -1
              }
         }
         case BUY_100_PIZZA: {
             return{
-                ...state,numberOfPizza:state.numberOfPizza -action.payload
+                ...state,
+                numberOfPizza:state.numberOfPizza -action.payload
             }
        }
         default: return state
