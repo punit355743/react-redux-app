@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import {useSelector,useDispatch } from 'react-redux';
+import {connect } from 'react-redux';
 import {buyAPizza,buy100Pizza} from './../store/actionCreator';
-export default function Pizza() {
-    const pizza = useSelector(state => state.pizza);
-    console.log(pizza);
-    const dispatch = useDispatch();
+function Pizza({pizza,buyPizza,buy100Pizza}) {
    
     const clickHandler = ()=>{
-        dispatch(buyAPizza());
+        buyPizza();
     }
     const clickHandlerPizza = ()=>{
-        dispatch(buy100Pizza(50));
+        buy100Pizza();
     }
 
 
@@ -20,6 +17,22 @@ export default function Pizza() {
         <button onClick={clickHandlerPizza}>Buy 100 pizza</button>
     </div>)
 }
+
+
+const mapStateToProps = (state) => {
+    return { pizza: state.pizza }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+       buyPizza:() => dispatch(buyAPizza()),
+       buy100Pizza:() => dispatch(buyAPizza()),
+
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pizza)
 
 
 
